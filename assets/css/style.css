@@ -78,12 +78,20 @@ body {
 .header__logo {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
 
 .header__logo-img {
   height: 40px;
   width: auto;
+}
+
+.header__logo-text {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .header__nav {
@@ -737,6 +745,10 @@ tr:last-child td {
 
   .header__logo-img {
     height: 32px;
+  }
+
+  .header__logo-text {
+    font-size: 1rem;
   }
 
   .header__nav {
