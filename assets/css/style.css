@@ -891,7 +891,7 @@ tr:last-child td {
   }
 
   .slider__arrow {
-    display: none; /* モバイルではスワイプで操作 */
+    display: none !important; /* モバイルではスワイプで操作 */
   }
 
   .slider__dot {
@@ -943,12 +943,6 @@ tr:last-child td {
   .slider {
     margin: 1rem -0.75rem;
     width: calc(100% + 1.5rem);
-  }
-
-  .slider__arrow {
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
   }
 }
 
