@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omooooori.github.io/rosenhouse/sitemap.xml
+Sitemap: https://rosenhouse.jp/sitemap.xml

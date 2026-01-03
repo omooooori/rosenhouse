@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 本番URL
 
-https://omooooori.github.io/rosenhouse/
+https://rosenhouse.jp/
 
 ## ローカル確認
 
