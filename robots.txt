@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omooooori.github.io/rosenhaus/sitemap.xml
