@@ -678,12 +678,19 @@ tr:last-child td {
   }
 
   .footer {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .footer__nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   .footer__nav a {
-    margin: 0 0.75rem;
-    font-size: 0.85rem;
+    margin: 0;
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
 }
 
@@ -716,6 +723,14 @@ tr:last-child td {
   .badge {
     font-size: 0.7rem;
     padding: 0.35rem 0.6rem;
+  }
+
+  .footer__nav {
+    gap: 0.25rem;
+  }
+
+  .footer__nav a {
+    font-size: 0.7rem;
   }
 }
 
