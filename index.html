@@ -43,21 +43,49 @@
           <p class="product__subtitle">※ 製品名・詳細情報は後日更新予定です</p>
         </div>
 
-        <!-- 製品ギャラリー -->
-        <div class="gallery">
-          <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebb6f6b?w=400&h=300&fit=crop" alt="製品イメージ 1">
+        <!-- 製品スライダー -->
+        <div class="slider" id="productSlider">
+          <div class="slider__track">
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&h=450&fit=crop" alt="製品イメージ 1">
+            </div>
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=450&fit=crop" alt="製品イメージ 2">
+            </div>
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&h=450&fit=crop" alt="製品イメージ 3">
+            </div>
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=450&fit=crop" alt="製品イメージ 4">
+            </div>
           </div>
-          <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&h=300&fit=crop" alt="製品イメージ 2">
-          </div>
-          <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=300&fit=crop" alt="製品イメージ 3">
-          </div>
-          <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&h=300&fit=crop" alt="製品イメージ 4">
+          <button class="slider__arrow slider__arrow--prev" onclick="moveSlide(-1)">←</button>
+          <button class="slider__arrow slider__arrow--next" onclick="moveSlide(1)">→</button>
+          <div class="slider__nav">
+            <span class="slider__dot active" onclick="goToSlide(0)"></span>
+            <span class="slider__dot" onclick="goToSlide(1)"></span>
+            <span class="slider__dot" onclick="goToSlide(2)"></span>
+            <span class="slider__dot" onclick="goToSlide(3)"></span>
           </div>
         </div>
+        <script>
+          let currentSlide = 0;
+          const totalSlides = 4;
+          function moveSlide(dir) {
+            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+            updateSlider();
+          }
+          function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+          }
+          function updateSlider() {
+            document.querySelector('.slider__track').style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.slider__dot').forEach((dot, i) => {
+              dot.classList.toggle('active', i === currentSlide);
+            });
+          }
+        </script>
 
         <div class="product__body">
           <h3 class="section__subtitle">製品の特長</h3>
