@@ -683,14 +683,18 @@ tr:last-child td {
 
   .footer__nav {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .footer__nav a {
     margin: 0;
-    font-size: 0.75rem;
-    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+
+  .footer__copy {
+    margin-top: 0.5rem;
   }
 }
 
@@ -723,14 +727,6 @@ tr:last-child td {
   .badge {
     font-size: 0.7rem;
     padding: 0.35rem 0.6rem;
-  }
-
-  .footer__nav {
-    gap: 0.25rem;
-  }
-
-  .footer__nav a {
-    font-size: 0.7rem;
   }
 }
 
