@@ -1,0 +1,355 @@
+/* ローゼンハウス - 共通スタイル */
+
+/* リセット・基本設定 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #1a365d;      /* 濃紺 - 信頼感 */
+  --color-secondary: #2d5a87;    /* 青 */
+  --color-accent: #c53030;       /* 赤 - アクセント */
+  --color-text: #2d3748;         /* 本文 */
+  --color-text-light: #718096;   /* 補足テキスト */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7fafc;
+  --color-border: #e2e8f0;
+  --max-width: 960px;
+  --spacing: 1.5rem;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  line-height: 1.8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* レイアウト */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* ヘッダー */
+.header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header__nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.header__nav a:hover {
+  text-decoration: underline;
+}
+
+/* メインコンテンツ */
+main {
+  padding: 3rem 0;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section__title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.section__subtitle {
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* ヒーロー */
+.hero {
+  background-color: var(--color-bg-alt);
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero__title {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.hero__lead {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* カード */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card__text {
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: #9b2c2c;
+}
+
+.btn--secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary);
+}
+
+/* リスト */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.list li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-size: 0.6rem;
+  top: 0.75rem;
+}
+
+/* フロー */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.flow__step {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+  position: relative;
+}
+
+.flow__step::after {
+  content: "→";
+  position: absolute;
+  right: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-light);
+}
+
+.flow__step:last-child::after {
+  display: none;
+}
+
+.flow__number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.flow__label {
+  font-size: 0.9rem;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  background-color: var(--color-bg-alt);
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* フッター */
+.footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer__inner {
+  text-align: center;
+}
+
+.footer__nav {
+  margin-bottom: 1rem;
+}
+
+.footer__nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 0.9rem;
+}
+
+.footer__nav a:hover {
+  text-decoration: underline;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* フォーム埋め込み */
+.form-embed {
+  width: 100%;
+  min-height: 800px;
+  border: none;
+}
+
+/* ユーティリティ */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  :root {
+    --spacing: 1rem;
+  }
+
+  .hero__title {
+    font-size: 1.5rem;
+  }
+
+  .header__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .flow {
+    flex-direction: column;
+  }
+
+  .flow__step::after {
+    content: "↓";
+    right: 50%;
+    top: auto;
+    bottom: -0.75rem;
+    transform: translateX(50%);
+  }
+}
+
+/* 印刷対応 */
+@media print {
+  .header, .footer, .btn {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
