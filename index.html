@@ -69,22 +69,116 @@
           </div>
         </div>
         <script>
-          let currentSlide = 0;
-          const totalSlides = 4;
-          function moveSlide(dir) {
-            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-            updateSlider();
-          }
-          function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-          }
-          function updateSlider() {
-            document.querySelector('.slider__track').style.transform = `translateX(-${currentSlide * 100}%)`;
-            document.querySelectorAll('.slider__dot').forEach((dot, i) => {
-              dot.classList.toggle('active', i === currentSlide);
+          (function() {
+            const slider = document.getElementById('productSlider');
+            const track = slider.querySelector('.slider__track');
+            const dots = slider.querySelectorAll('.slider__dot');
+            const totalSlides = 4;
+            let currentSlide = 0;
+
+            // Touch/swipe handling
+            let startX = 0;
+            let startY = 0;
+            let currentX = 0;
+            let isDragging = false;
+            let isHorizontalSwipe = null;
+
+            function updateSlider(animate = true) {
+              if (!animate) track.classList.add('dragging');
+              else track.classList.remove('dragging');
+              track.style.transform = `translateX(-${currentSlide * 100}%)`;
+              dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            }
+
+            window.moveSlide = function(dir) {
+              currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+              updateSlider();
+            };
+
+            window.goToSlide = function(index) {
+              currentSlide = index;
+              updateSlider();
+            };
+
+            // Touch events
+            track.addEventListener('touchstart', (e) => {
+              startX = e.touches[0].clientX;
+              startY = e.touches[0].clientY;
+              isDragging = true;
+              isHorizontalSwipe = null;
+              track.classList.add('dragging');
+            }, { passive: true });
+
+            track.addEventListener('touchmove', (e) => {
+              if (!isDragging) return;
+              currentX = e.touches[0].clientX;
+              const diffX = currentX - startX;
+              const diffY = e.touches[0].clientY - startY;
+
+              // Determine swipe direction on first significant move
+              if (isHorizontalSwipe === null && (Math.abs(diffX) > 10 || Math.abs(diffY) > 10)) {
+                isHorizontalSwipe = Math.abs(diffX) > Math.abs(diffY);
+              }
+
+              if (isHorizontalSwipe) {
+                e.preventDefault();
+                const offset = -currentSlide * 100 + (diffX / slider.offsetWidth) * 100;
+                track.style.transform = `translateX(${offset}%)`;
+              }
+            }, { passive: false });
+
+            track.addEventListener('touchend', () => {
+              if (!isDragging) return;
+              isDragging = false;
+              track.classList.remove('dragging');
+
+              if (isHorizontalSwipe) {
+                const diffX = currentX - startX;
+                const threshold = slider.offsetWidth * 0.2;
+
+                if (diffX < -threshold && currentSlide < totalSlides - 1) {
+                  currentSlide++;
+                } else if (diffX > threshold && currentSlide > 0) {
+                  currentSlide--;
+                }
+              }
+
+              updateSlider();
             });
-          }
+
+            // Mouse drag support for desktop
+            track.addEventListener('mousedown', (e) => {
+              startX = e.clientX;
+              isDragging = true;
+              track.classList.add('dragging');
+              e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+              if (!isDragging) return;
+              currentX = e.clientX;
+              const diffX = currentX - startX;
+              const offset = -currentSlide * 100 + (diffX / slider.offsetWidth) * 100;
+              track.style.transform = `translateX(${offset}%)`;
+            });
+
+            document.addEventListener('mouseup', () => {
+              if (!isDragging) return;
+              isDragging = false;
+              track.classList.remove('dragging');
+
+              const diffX = currentX - startX;
+              const threshold = slider.offsetWidth * 0.2;
+
+              if (diffX < -threshold && currentSlide < totalSlides - 1) {
+                currentSlide++;
+              } else if (diffX > threshold && currentSlide > 0) {
+                currentSlide--;
+              }
+
+              updateSlider();
+            });
+          })();
         </script>
 
         <div class="product__body">
