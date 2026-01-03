@@ -4,7 +4,7 @@
 
 ## URL
 
-- **本番**: https://omooooori.github.io/rosenhaus/
+- **本番**: https://omooooori.github.io/rosenhouse/
 
 ## 構成
 
