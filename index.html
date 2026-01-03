@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ローゼンハウス | 業務用工場向け工具</title>
   <meta name="description" content="業務用工場向け工具の製造・販売。現場の課題を解決する専門工具をご提供します。">
+  <!-- OGP -->
+  <meta property="og:title" content="ローゼンハウス | 業務用工場向け工具">
+  <meta property="og:description" content="業務用工場向け工具の製造・販売。現場の課題を解決する専門工具をご提供します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omooooori.github.io/rosenhaus/">
+  <meta property="og:image" content="https://omooooori.github.io/rosenhaus/assets/images/ogp.svg">
+  <meta property="og:site_name" content="ローゼンハウス">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -37,7 +47,7 @@
     <div class="container">
 
       <!-- 製品セクション（繰り返し可能） -->
-      <article class="product">
+      <article class="product fade-in">
         <div class="product__header">
           <h2 class="product__title">製品A（仮称）</h2>
           <p class="product__subtitle">※ 製品名・詳細情報は後日更新予定です</p>
@@ -206,7 +216,7 @@
 
       <!-- 将来の製品追加時は上記 <article class="product"> をコピー -->
 
-      <section class="section">
+      <section class="section fade-in">
         <h2 class="section__title">導入の流れ</h2>
         <div class="flow">
           <div class="flow__step">
@@ -237,7 +247,7 @@
         </div>
       </section>
 
-      <section class="cta">
+      <section class="cta fade-in">
         <h2 class="cta__title">まずはお気軽にご相談ください</h2>
         <p class="cta__text">
           製品に関するご質問・お見積りのご依頼を承ります。<br>
@@ -263,5 +273,24 @@
       <p class="footer__copy">&copy; ローゼンハウス</p>
     </div>
   </footer>
+
+  <script>
+    // スクロールアニメーション
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ヘッダースクロール時の影
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 10);
+    });
+  </script>
 </body>
 </html>
