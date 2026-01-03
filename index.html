@@ -36,36 +36,38 @@
   <main>
     <div class="container">
 
-      <section class="problems">
-        <h2 class="problems__title">こんな課題はありませんか？</h2>
-        <ul class="problems__list">
-          <li class="problems__item">
-            <span class="problems__icon">⚠️</span>
-            <span>既存の工具では対応できない特殊な加工が必要</span>
-          </li>
-          <li class="problems__item">
-            <span class="problems__icon">⚠️</span>
-            <span>作業効率を上げたいが、適切な工具が見つからない</span>
-          </li>
-          <li class="problems__item">
-            <span class="problems__icon">⚠️</span>
-            <span>安全性と精度を両立した工具を探している</span>
-          </li>
-          <li class="problems__item">
-            <span class="problems__icon">⚠️</span>
-            <span>特定の工程に特化した専門工具が必要</span>
-          </li>
-        </ul>
-      </section>
+      <!-- 製品セクション（繰り返し可能） -->
+      <article class="product">
+        <div class="product__header">
+          <h2 class="product__title">製品A（仮称）</h2>
+          <p class="product__subtitle">※ 製品名・詳細情報は後日更新予定です</p>
+        </div>
 
-      <section class="section">
-        <h2 class="section__title">製品A（仮称）</h2>
-        <p class="mb-3">
-          ※ 製品名・詳細情報は後日更新予定です。
-        </p>
+        <!-- 製品ギャラリー -->
+        <div class="gallery">
+          <div class="gallery__item gallery__placeholder">
+            <span>製品画像 1</span>
+          </div>
+          <div class="gallery__item gallery__placeholder">
+            <span>製品画像 2</span>
+          </div>
+          <div class="gallery__item gallery__placeholder">
+            <span>製品画像 3</span>
+          </div>
+          <div class="gallery__item gallery__placeholder">
+            <span>製品画像 4</span>
+          </div>
+        </div>
 
-        <div class="card">
-          <h3 class="card__title">対象工程・用途</h3>
+        <div class="product__body">
+          <h3 class="section__subtitle">製品の特長</h3>
+          <ul class="list">
+            <li>（特長1：後日記載）</li>
+            <li>（特長2：後日記載）</li>
+            <li>（特長3：後日記載）</li>
+          </ul>
+
+          <h3 class="section__subtitle mt-3">対象工程・用途</h3>
           <ul class="list">
             <li>対象工程：（後日記載）</li>
             <li>主な用途：（後日記載）</li>
@@ -73,35 +75,14 @@
           </ul>
         </div>
 
-        <div class="card">
-          <h3 class="card__title">解決できる課題</h3>
-          <ul class="list">
-            <li>（課題1：後日記載）</li>
-            <li>（課題2：後日記載）</li>
-            <li>（課題3：後日記載）</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 class="card__title">製品の特長</h3>
-          <ul class="list">
-            <li>（特長1：後日記載）</li>
-            <li>（特長2：後日記載）</li>
-            <li>（特長3：後日記載）</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2 class="section__title">技術仕様</h2>
-        <p class="mb-3">
-          詳細な技術仕様は下記PDFをご覧ください。
-        </p>
-        <p>
+        <div class="product__footer">
           <a href="docs/tool-a_spec.pdf" class="btn btn--secondary">📄 技術仕様書（PDF）</a>
-          <br><small class="mt-2" style="display: inline-block; color: var(--color-text-light);">※ 準備中</small>
-        </p>
-      </section>
+          <a href="support/contact.html" class="btn btn--primary">お問い合わせ</a>
+        </div>
+      </article>
+      <!-- /製品セクション -->
+
+      <!-- 将来の製品追加時は上記 <article class="product"> をコピー -->
 
       <section class="section">
         <h2 class="section__title">導入の流れ</h2>
@@ -132,13 +113,6 @@
             <span class="flow__label">納品</span>
           </div>
         </div>
-      </section>
-
-      <section class="section">
-        <h2 class="section__title">価格</h2>
-        <p>
-          個別にお見積りいたします。お気軽にお問い合わせください。
-        </p>
       </section>
 
       <section class="cta">
