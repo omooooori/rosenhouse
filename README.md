@@ -4,7 +4,7 @@
 
 ## URL
 
-- **本番**: https://rosenhouse.jp/
+https://rosenhouse.jp/
 
 ## 構成
 
@@ -14,32 +14,26 @@
 ├── about.html          # 会社概要
 ├── support/
 │   ├── warranty.html   # 保証・免責
-│   └── contact.html    # お問い合わせ
+│   └── contact.html    # お問い合わせ（Google フォーム）
 ├── docs/               # 技術仕様PDF
-└── assets/
-    ├── css/
-    └── images/
+├── assets/
+│   ├── css/
+│   └── images/
+├── sitemap.xml
+└── robots.txt
 ```
 
 ## 技術スタック
 
 - 静的HTML/CSS
-- ホスティング: GitHub Pages（将来的にCloudflare Pagesへ移行予定）
+- ホスティング: Cloudflare Pages
+- DNS: Cloudflare
+- ドメイン: お名前.com
 
 ## ローカル確認
 
 ```bash
-# Python
 python -m http.server 8000
-
-# Node.js
+# or
 npx serve
 ```
-
-## TODO
-
-- [ ] Googleフォーム作成・埋め込み
-- [ ] 製品名・詳細情報の記載
-- [ ] 技術仕様PDF追加
-- [ ] 会社情報の記載
-- [ ] 独自ドメイン設定
